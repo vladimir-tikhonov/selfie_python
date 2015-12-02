@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Добавление фотографии на сайт</title>
+    </head>
+
+    <body>
+        <form action="{% url "posts:create" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.picture.label_tag }} {{ form.picture.help_text }}</p>
+
+            <p>
+                {{ form.picture.errors }}
+                {{ form.picture }}
+            </p>
+
+            <p><input type="submit" value="Загрузить фотографию"/></p>
+        </form>
+    </body>

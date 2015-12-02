@@ -8,23 +8,27 @@ from posts.forms import PostForm
 
 
 def index(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            new_post = Post(picture=request.FILES['picture'])
-            new_post.save()
-
-        # Redirect to the document list after POST
-        return HttpResponseRedirect(reverse('posts.views.index'))
-    else:
-        form = PostForm()  # A empty, unbound form
-
-    # Load documents for the list page
     posts = Post.objects.all()
 
-    # Render list page with the documents and the form
     return render_to_response(
         'index.html',
-        {'posts': posts, 'form': form},
+        {'posts': posts},
         context_instance=RequestContext(request)
     )
+
+def new(request):
+    form = PostForm()
+
+    return render_to_response(
+        'new.html',
+        {'form': form},
+        context_instance=RequestContext(request)
+    )
+
+def create(request):
+    form = PostForm(request.POST, request.FILES)
+    if form.is_valid():
+        new_post = Post(picture=request.FILES['picture'])
+        new_post.save()
+
+    return HttpResponseRedirect(reverse('posts:index'))
