@@ -1,10 +1,8 @@
 from django.conf.urls import url
 
-from . import views
+from posts.views import PostView
 
-app_name = 'posts'
+app_name = 'post'
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'new$', views.new, name='new'),
-    url(r'create$', views.create, name='create'),
+    url(r'new$', PostView.as_view(), name='new')
 ]

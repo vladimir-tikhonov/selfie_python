@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <a href="{% url "post:new" %}">Добавить фотографию</a>
+  {% if posts %}
+    <ul>
+      {% for post in posts %}
+        <li>
+          <img src="{{ post.picture.url }}" />
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Нет фотографий.</p>
+  {% endif %}
+
+{% endblock %}
