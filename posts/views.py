@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
@@ -10,19 +9,19 @@ from posts.forms import PostForm
 def index(request):
     posts = Post.objects.all()
 
-    return render_to_response(
-        'index.html',
-        {'posts': posts},
-        context_instance=RequestContext(request)
+    return render(
+        request,
+        'posts/index.html',
+        {'posts': posts}
     )
 
 def new(request):
     form = PostForm()
 
-    return render_to_response(
-        'new.html',
-        {'form': form},
-        context_instance=RequestContext(request)
+    return render(
+        request,
+        'posts/new.html',
+        {'form': form}
     )
 
 def create(request):
