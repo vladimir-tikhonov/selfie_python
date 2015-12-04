@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts.apps.PostsConfig',
     'feed.apps.FeedConfig',
-    'registration.apps.RegistrationConfig'
+    'registration.apps.RegistrationConfig',
+    'login.apps.LoginConfig'
 ]
 
 MIDDLEWARE_CLASSES = [

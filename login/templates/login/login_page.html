@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+  <form method='post' action=''>
+    {% csrf_token %}
+    {{ form }}
+    <tr>
+      <td></td>
+      <td>
+        <input type="submit" value="Войти на сайт" />
+      </td>
+    </tr>
+  </form>
+</table>
+{% endblock %}
