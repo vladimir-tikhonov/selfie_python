@@ -3,8 +3,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views.generic import View
 
-from posts.models import Post
-from posts.forms import PostForm
+from posts.models.post import Post
+from posts.forms.post_form import PostForm
 
 class PostView(View):
     form_class = PostForm

@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from feed.views import FeedView
+from feed.views.feed_view import FeedView
 
 app_name = 'feed'
 urlpatterns = [
