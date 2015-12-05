@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'registration.apps.RegistrationConfig',
     'login.apps.LoginConfig',
     'user.apps.UserConfig',
-    'vote.apps.VoteConfig'
+    'vote.apps.VoteConfig',
+    'report.apps.ReportConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
