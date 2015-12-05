@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'feed.apps.FeedConfig',
     'registration.apps.RegistrationConfig',
     'login.apps.LoginConfig',
-    'user.apps.UserConfig'
+    'user.apps.UserConfig',
+    'vote.apps.VoteConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
