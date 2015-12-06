@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'user.apps.UserConfig',
     'vote.apps.VoteConfig',
-    'report.apps.ReportConfig'
+    'report.apps.ReportConfig',
+    'user_management.apps.UserManagementConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -120,3 +121,13 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Roles constants
+
+USER_ROLE = 0
+VIP_USER_ROLE = 1
+MODERATOR_ROLE = 2
+ADMIN_ROLE = 3
+DIRECTOR_ROLE = 4
+
+ROLE_NAMES = ['Пользователь', 'Vip-пользователь', 'Модератор', 'Администратор', 'Директор']

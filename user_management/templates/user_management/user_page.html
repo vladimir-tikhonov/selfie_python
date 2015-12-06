@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Имя пользователя: {{user.username}}</p>
+<p>Email: {{user.email}}</p>
+<form action="{% url "user_management:details" username=user.username %}" method="post">
+    {% csrf_token %}
+    <p><input type="submit" value="Назначить администратором"/></p>
+</form>
+
+{% endblock %}

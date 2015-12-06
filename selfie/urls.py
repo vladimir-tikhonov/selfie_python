@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^vote/', include('vote.urls')),
     url(r'^report/', include('report.urls')),
+    url(r'^users/', include('user_management.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
