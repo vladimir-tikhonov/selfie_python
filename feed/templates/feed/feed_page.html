@@ -20,7 +20,7 @@
                   {{ vote_form.value }}
               </p>
               <p><input type="submit" value="Оценить фотографию"/></p>
-              <a href="{% url "report:new" post_id=post.id %}">Пожаловаться на фотографию</a>
+              <a href="{% url "claim:new" post_id=post.id %}">Пожаловаться на фотографию</a>
           </form>
         </li>
       {% endfor %}

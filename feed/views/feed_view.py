@@ -14,7 +14,7 @@ class FeedView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.request.user.role == 0
 
     def get_queryset(self):
-        all_posts = Post.objects.filter(report__isnull=True)
+        all_posts = Post.objects.filter(claim__isnull=True)
         queryset = []
         for post in all_posts:
             post_data = {

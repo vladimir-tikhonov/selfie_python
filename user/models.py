@@ -3,3 +3,6 @@ from django.db import models
 
 class User(AbstractUser):
     role = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = 'user'

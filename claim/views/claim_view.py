@@ -5,13 +5,13 @@ from django.views.generic import View
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from report.models.report import Report
-from report.forms.report_form import ReportForm
+from claim.models.claim import Claim
+from claim.forms.claim_form import ClaimForm
 
-class ReportView(UserPassesTestMixin, LoginRequiredMixin, View):
+class ClaimView(UserPassesTestMixin, LoginRequiredMixin, View):
     login_url = '/login/'
-    form_class = ReportForm
-    template_name = 'report/new_report.html'
+    form_class = ClaimForm
+    template_name = 'claim/new_claim.html'
 
     def get(self, request, post_id):
         form = self.form_class()
@@ -21,11 +21,11 @@ class ReportView(UserPassesTestMixin, LoginRequiredMixin, View):
     def post(self, request, post_id):
         form = self.form_class(request.POST)
         if form.is_valid():
-            new_report = Report(reason=request.POST['reason'],
+            new_claim = Claim(reason=request.POST['reason'],
                                 user=self.request.user,
                                 post_id=post_id
             )
-            new_report.save()
+            new_claim.save()
             return HttpResponseRedirect(reverse('feed:index'))
         else:
             return render(request, self.template_name, {'form': form, 'post_id': post_id})

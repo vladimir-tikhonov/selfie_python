@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form action="{% url "report:new" post_id=post_id %}" method="post">
+<form action="{% url "claim:new" post_id=post_id %}" method="post">
     {% csrf_token %}
     <p>{{ form.non_field_errors }}</p>
 

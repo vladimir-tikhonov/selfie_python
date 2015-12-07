@@ -6,3 +6,6 @@ class Vote(models.Model):
     user = models.ForeignKey(User)
     post = models.ForeignKey(Post)
     value = models.IntegerField()
+
+    class Meta:
+        db_table = 'vote'

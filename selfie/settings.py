@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'user.apps.UserConfig',
     'vote.apps.VoteConfig',
-    'report.apps.ReportConfig',
+    'claim.apps.ClaimConfig',
     'user_management.apps.UserManagementConfig'
 ]
 

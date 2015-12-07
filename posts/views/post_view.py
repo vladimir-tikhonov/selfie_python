@@ -21,7 +21,7 @@ class PostView(UserPassesTestMixin, LoginRequiredMixin, View):
     def post(self, request):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            new_post = Post(picture=request.FILES['picture'])
+            new_post = Post(picture=request.FILES['picture'], user=self.request.user)
             new_post.save()
             return HttpResponseRedirect(reverse('feed:index'))
         else:

@@ -5,6 +5,7 @@ from user.models import User
 class RegistrationForm(UserCreationForm):
     is_vip = forms.BooleanField(
         label='Хотите зарегистрироваться как vip-пользователь?',
+        required=False
     )
 
     def save(self, commit=True):
