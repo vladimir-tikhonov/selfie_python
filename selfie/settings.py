@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'vote.apps.VoteConfig',
     'claim.apps.ClaimConfig',
-    'user_management.apps.UserManagementConfig'
+    'user_management.apps.UserManagementConfig',
+    'plan.apps.PlanConfig',
+    'subscription.apps.SubscriptionConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
