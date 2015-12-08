@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+  {% for plan in plans %}
+    <li>
+      <span>Описание: {{plan.description}}.</span>
+      <br />
+      <span>Стоимость: {{plan.price}} y.e.</span>
+      <br />
+      <span>Длительность подписки: {{plan.duration}} дней.</span>
+      <br />
+      <a href="#">Выбрать этот план</a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
