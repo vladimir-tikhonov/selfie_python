@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'user_management.apps.UserManagementConfig',
     'plan.apps.PlanConfig',
     'subscription.apps.SubscriptionConfig',
+    'user_profile.apps.UserProfileConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

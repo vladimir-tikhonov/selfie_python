@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^vote/', include('vote.urls')),
     url(r'^claim/', include('claim.urls')),
     url(r'^users/', include('user_management.urls')),
+    url(r'^profile/', include('user_profile.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
