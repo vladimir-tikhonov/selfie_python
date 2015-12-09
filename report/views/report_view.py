@@ -32,5 +32,4 @@ class ReportView(UserPassesTestMixin, LoginRequiredMixin, View):
                       {'transactions': transactions, 'start': start, 'end': end})
 
     def test_func(self):
-        user_role = self.request.user.role
-        return user_role == 0 or user_role == 1
+        return self.request.user.role == 4

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'subscription_management.apps.SubscriptionManagementConfig',
     'report.apps.ReportConfig',
     'printer.apps.PrinterConfig',
+    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

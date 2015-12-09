@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Главная страница администратора</h1>
+<h3>Реализованные функции</h3>
+<a href="{% url "subscription_management:list" %}">Управление vip-подписками</a>
+<br />
+{% endblock %}

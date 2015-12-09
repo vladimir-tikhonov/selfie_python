@@ -7,7 +7,7 @@
     <ul>
       {% for post in posts %}
         <li>
-          <img src="{{ post.picture.url }}" width="80px" />
+          <img src="{{ post.picture.url }}" width="250px" />
           {% if post.current_vote %}
             <p>Вы оценили эту фотографию на {{post.current_vote}}</p>
           {% else %}

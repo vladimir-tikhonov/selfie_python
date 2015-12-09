@@ -18,6 +18,6 @@ class LoginView(View):
         form = self.form_class(data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return HttpResponseRedirect(reverse('feed:index'))
+            return HttpResponseRedirect(reverse('home:index'))
         else:
             return render(request, self.template_name, {'form': form})

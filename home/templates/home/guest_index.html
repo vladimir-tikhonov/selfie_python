@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Главная страница гостя</h1>
+<h3>Реализованные функции</h3>
+<a href="{% url "registration:new" %}">Регистрация</a>
+<br />
+<a href="{% url "login:new" %}">Вход в систему</a>
+{% endblock %}

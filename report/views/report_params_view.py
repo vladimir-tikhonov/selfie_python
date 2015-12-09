@@ -23,5 +23,4 @@ class ReportParamsView(UserPassesTestMixin, LoginRequiredMixin, View):
                                     kwargs={'start': request.POST['start'], 'end': request.POST['end']}))
 
     def test_func(self):
-        user_role = self.request.user.role
-        return user_role == 0 or user_role == 1
+        return self.request.user.role == 4
