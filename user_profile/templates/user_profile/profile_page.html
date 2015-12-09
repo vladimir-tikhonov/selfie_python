@@ -3,7 +3,7 @@
 {% block content %}
 
 <h2>Просмотр профиля пользователя {{user.username}}</h2>
-<a href="#">Подписаться</a>
+<a href="{% url "plan:choose" username=user.username %}">Подписаться</a>
 <a href="#">Найти фотографии пользователя</a>
 
 {% endblock %}
