@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^profile/', include('user_profile.urls')),
     url(r'^plan/', include('plan.urls')),
     url(r'^payment/', include('payment.urls')),
+    url(r'^subscriptions/', include('subscription_management.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

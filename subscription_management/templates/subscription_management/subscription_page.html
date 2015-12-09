@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Покупатель: {{subscription.customer.username}}</p>
+<p>Сумма: {{subscription.transaction.amount}}</p>
+<p>Счёт: {{subscription.transaction.bill}}</p>
+<p>Дата: {{subscription.transaction.date}}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="status" value="1" />
+    <p><input type="submit" value="Подтвердить подписку"/></p>
+</form>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="status" value="2" />
+    <p><input type="submit" value="Отклонить подписку"/></p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if subscriptions %}
+    <table border="1">
+    <tr>
+      <th>Покупатель</th>
+      <th>Сумма</th>
+      <th>Счёт</th>
+      <th>Статус</th>
+      <th>Дата</th>
+      <th>Ссылка</th>
+    </tr>
+      {% for subscription in subscriptions %}
+        <tr>
+          <td>{{subscription.customer.username}}</td>
+          <td>{{subscription.transaction.amount}}</td>
+          <td>{{subscription.transaction.bill}}</td>
+          <td>{{subscription.status}}</td>
+          <td>{{subscription.transaction.date}}</td>
+          <td><a href="{{subscription.link}}">Перейти</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Нет записей.</p>
+  {% endif %}
+
+{% endblock %}

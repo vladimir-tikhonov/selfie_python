@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'subscription.apps.SubscriptionConfig',
     'user_profile.apps.UserProfileConfig',
     'transaction.apps.TransactionConfig',
-    'payment.apps.PaymentConfig'
+    'payment.apps.PaymentConfig',
+    'subscription_management.apps.SubscriptionManagementConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -136,3 +137,11 @@ ADMIN_ROLE = 3
 DIRECTOR_ROLE = 4
 
 ROLE_NAMES = ['Пользователь', 'Vip-пользователь', 'Модератор', 'Администратор', 'Директор']
+
+# Subscription constants
+
+INITIAL_STATUS = 0
+APPROVED_STATUS = 1
+DECLINED_STATUS = 2
+
+STATUS_NAMES = ['Оплачено', 'Подтверждено', 'Отклонено']
