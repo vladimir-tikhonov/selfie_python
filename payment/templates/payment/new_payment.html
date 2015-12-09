@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <p>{{ form.identity.label_tag }} {{ form.identity.help_text }}</p>
+    <p>
+        {{ form.identity }}
+    </p>
+
+    <p>{{ form.card.label_tag }} {{ form.card.help_text }}</p>
+    <p>
+        {{ form.card }}
+    </p>
+
+    <p>{{ form.cvv.label_tag }} {{ form.cvv.help_text }}</p>
+    <p>
+        {{ form.cvv }}
+    </p>
+
+    <p><input type="submit" value="Подтвердить оплату"/></p>
+</form>
+
+{% endblock %}

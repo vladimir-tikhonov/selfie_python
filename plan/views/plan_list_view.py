@@ -12,6 +12,7 @@ class PlanListView(LoginRequiredMixin, ListView):
         queryset = []
         for plan in all_plans:
             plan_data = {
+                'id': plan.id,
                 'description': plan.plan_description.description,
                 'price': plan.price,
                 'duration': plan.duration

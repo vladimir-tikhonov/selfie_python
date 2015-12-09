@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<h1>Список доступных планов:</h1>
 <ul>
   {% for plan in plans %}
     <li>
@@ -11,7 +12,7 @@
       <br />
       <span>Длительность подписки: {{plan.duration}} дней.</span>
       <br />
-      <a href="#">Выбрать этот план</a>
+      <a href="{% url "payment:new" plan_id=plan.id username=username %}">Выбрать этот план</a>
     </li>
   {% endfor %}
 </ul>

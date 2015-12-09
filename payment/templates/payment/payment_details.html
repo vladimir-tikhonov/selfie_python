@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Сведения о платеже</h1>
+
+<span>Стоимость: {{payment.plan.price}}</span>
+<br />
+<span>Описание плана: {{payment.plan.plan_description.description}}</span>
+<br />
+<span>Имя пользователя: {{subscription.subscribee.username}}</span>
+<br />
+<span>Дата: {{subscription.transaction.date}}</span>
+<br />
+<br />
+<a href="{% url "feed:index" %}">Перейти на страницу фотографий</a>
+{% endblock %}

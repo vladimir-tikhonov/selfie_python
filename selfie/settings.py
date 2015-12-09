@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'subscription.apps.SubscriptionConfig',
     'user_profile.apps.UserProfileConfig',
     'transaction.apps.TransactionConfig',
+    'payment.apps.PaymentConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
