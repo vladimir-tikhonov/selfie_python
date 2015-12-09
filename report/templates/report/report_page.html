@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h1>Просмотр финансового отчёта с {{start}} по {{end}}</h1>
+
+{% if transactions %}
+  <table border="1">
+  <tr>
+    <th>Покупатель</th>
+    <th>Сумма</th>
+    <th>Счёт</th>
+    <th>Дата</th>
+  </tr>
+    {% for transaction in transactions %}
+      <tr>
+        <td>{{transaction.subscription_set.all.first.customer.username}}</td>
+        <td>{{transaction.amount}}</td>
+        <td>{{transaction.bill}}</td>
+        <td>{{transaction.date}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>Нет записей.</p>
+{% endif %}
+<form action="" method="post">
+  {% csrf_token %}
+  <p><input type="submit" value="Распечатать отчёт"/></p>
+</form>
+{% endblock %}

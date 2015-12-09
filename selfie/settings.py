@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'transaction.apps.TransactionConfig',
     'payment.apps.PaymentConfig',
     'subscription_management.apps.SubscriptionManagementConfig',
+    'report.apps.ReportConfig',
+    'printer.apps.PrinterConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -1,4 +1,5 @@
 from payment.adapters.payment import Payment
+from transaction.models.transaction import Transaction
 
 class PaymentAdapter():
     @staticmethod
@@ -8,3 +9,7 @@ class PaymentAdapter():
     @staticmethod
     def create_payment(plan, customer, subscribee):
         return Payment(plan, customer, subscribee)
+
+    @staticmethod
+    def get_report_data(start, end):
+        return Transaction.objects.filter(date__gt=start, date__lt=end)

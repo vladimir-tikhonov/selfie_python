@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p>{{ form.non_field_errors }}</p>
+
+    <p>{{ form.start.label_tag }} {{ form.start.help_text }}</p>
+    <p>
+        {{ form.start }}
+    </p>
+
+    <p>{{ form.end.label_tag }} {{ form.end.help_text }}</p>
+    <p>
+        {{ form.end }}
+    </p>
+
+    <p><input type="submit" value="Сгенерировать отчёт"/></p>
+</form>
+
+{% endblock %}
