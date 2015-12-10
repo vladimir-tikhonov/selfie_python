@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^report/', include('report.urls')),
     url(r'^$', include('home.urls')),
     url(r'^user_list/', include('user.urls')),
+    url(r'^logout/', include('logout.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

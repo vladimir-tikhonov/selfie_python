@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'report.apps.ReportConfig',
     'printer.apps.PrinterConfig',
     'home.apps.HomeConfig',
+    'logout.apps.LogoutConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
