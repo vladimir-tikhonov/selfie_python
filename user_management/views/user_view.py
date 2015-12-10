@@ -17,10 +17,16 @@ class UserView(UserPassesTestMixin, LoginRequiredMixin, View):
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, username):
+        return self.set_as_admin(request, username)
+
+    def test_func(self):
+        return self.request.user.role > settings.MODERATOR_ROLE
+
+    def set_as_admin(self, request, username):
         user = User.objects.get(username=username)
         user.role = settings.ADMIN_ROLE
         user.save()
         return HttpResponseRedirect(reverse('user_management:list'))
 
-    def test_func(self):
-        return self.request.user.role > settings.MODERATOR_ROLE
+    def set_as_moderator(self):
+        pass

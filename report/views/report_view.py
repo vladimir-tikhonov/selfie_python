@@ -36,3 +36,6 @@ class ReportView(UserPassesTestMixin, LoginRequiredMixin, View):
 
         return render(request, self.template_name,
                       {'transactions': transactions, 'start': start, 'end': end})
+
+    def view_vip_user_report(self, request, start, end):
+        pass

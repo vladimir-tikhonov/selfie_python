@@ -14,3 +14,6 @@ class UserProfileView(LoginRequiredMixin, View):
         user = User.objects.get(username=username)
 
         return render(request, self.template_name, {'user': user})
+
+    def change_user_status(self):
+        pass

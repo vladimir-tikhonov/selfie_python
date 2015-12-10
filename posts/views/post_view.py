@@ -33,3 +33,6 @@ class PostView(UserPassesTestMixin, LoginRequiredMixin, View):
             return HttpResponseRedirect(reverse('feed:index'))
         else:
             return render(request, self.template_name, {'form': form})
+
+    def remove_post(self):
+        pass

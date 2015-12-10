@@ -36,3 +36,9 @@ class ClaimView(UserPassesTestMixin, LoginRequiredMixin, View):
             return HttpResponseRedirect(reverse('feed:index'))
         else:
             return render(request, self.template_name, {'form': form, 'post_id': post_id})
+
+    def change_claim_status(self):
+        pass
+
+    def view_claim_list(self):
+        pass
