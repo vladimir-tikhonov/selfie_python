@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Список vip-пользователей</h2>
+  {% if users %}
+    <ul>
+      {% for user in users %}
+        <li>
+          <a href="{% url "user_profile:profile" username=user.username %}">{{user.username}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Нет записей.</p>
+  {% endif %}
+
+{% endblock %}

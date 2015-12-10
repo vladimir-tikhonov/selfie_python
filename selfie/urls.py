@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^subscriptions/', include('subscription_management.urls')),
     url(r'^report/', include('report.urls')),
     url(r'^$', include('home.urls')),
+    url(r'^user_list/', include('user.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
