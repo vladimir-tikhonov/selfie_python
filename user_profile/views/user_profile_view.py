@@ -8,6 +8,9 @@ class UserProfileView(LoginRequiredMixin, View):
     template_name = 'user_profile/profile_page.html'
 
     def get(self, request, username):
+        return self.view_profile(request, username)
+
+    def view_profile(self, request, username):
         user = User.objects.get(username=username)
 
         return render(request, self.template_name, {'user': user})

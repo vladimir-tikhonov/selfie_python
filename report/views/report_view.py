@@ -21,6 +21,12 @@ class ReportView(UserPassesTestMixin, LoginRequiredMixin, View):
                       {'transactions': transactions, 'start': start, 'end': end})
 
     def post(self, request, start, end):
+        return self.view_report(request, start, end)
+
+    def test_func(self):
+        return self.request.user.role == 4
+
+    def view_report(self, request, start, end):
         start = datetime.strptime(start, '%Y-%m-%d')
         end = datetime.strptime(end, '%Y-%m-%d')
         transactions = PaymentAdapter.get_report_data(start, end)
@@ -30,6 +36,3 @@ class ReportView(UserPassesTestMixin, LoginRequiredMixin, View):
 
         return render(request, self.template_name,
                       {'transactions': transactions, 'start': start, 'end': end})
-
-    def test_func(self):
-        return self.request.user.role == 4

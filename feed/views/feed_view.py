@@ -38,3 +38,6 @@ class FeedView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             return vote.value
         else:
             return None
+
+    def view_feed(self):
+        pass

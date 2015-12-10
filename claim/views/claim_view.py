@@ -19,6 +19,13 @@ class ClaimView(UserPassesTestMixin, LoginRequiredMixin, View):
         return render(request, self.template_name, {'form': form, 'post_id': post_id})
 
     def post(self, request, post_id):
+        return self.send_claim(request, post_id)
+
+    def test_func(self):
+        user_role = self.request.user.role
+        return user_role == 0 or user_role == 1
+
+    def send_claim(self, request, post_id):
         form = self.form_class(request.POST)
         if form.is_valid():
             new_claim = Claim(reason=request.POST['reason'],
@@ -29,7 +36,3 @@ class ClaimView(UserPassesTestMixin, LoginRequiredMixin, View):
             return HttpResponseRedirect(reverse('feed:index'))
         else:
             return render(request, self.template_name, {'form': form, 'post_id': post_id})
-
-    def test_func(self):
-        user_role = self.request.user.role
-        return user_role == 0 or user_role == 1

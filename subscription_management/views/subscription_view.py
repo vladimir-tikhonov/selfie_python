@@ -17,10 +17,13 @@ class SubscriptionView(UserPassesTestMixin, LoginRequiredMixin, View):
         return render(request, self.template_name, {'subscription': subscription})
 
     def post(self, request, subscription_id):
+        return self.change_subscription_status(request, subscription_id)
+
+    def test_func(self):
+        return self.request.user.role >= settings.USER_ROLE
+
+    def change_subscription_status(self, request, subscription_id):
         subscription = Subscription.objects.get(id=subscription_id)
         subscription.status = request.POST['status']
         subscription.save()
         return HttpResponseRedirect(reverse('subscription_management:list'))
-
-    def test_func(self):
-        return self.request.user.role >= settings.USER_ROLE

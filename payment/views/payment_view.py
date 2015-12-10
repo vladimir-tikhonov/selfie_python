@@ -22,6 +22,13 @@ class PaymentView(UserPassesTestMixin, LoginRequiredMixin, View):
                       {'form': form, 'plan_id': plan_id})
 
     def post(self, request, username, plan_id):
+        return self.subscribe_to_user(request, username, plan_id)
+
+    def test_func(self):
+        user_role = self.request.user.role
+        return user_role == 0 or user_role == 1
+
+    def subscribe_to_user(self, request, username, plan_id):
         subscribee = User.objects.get(username=username)
         plan = Plan.objects.get(id=plan_id)
         customer = self.request.user
@@ -32,7 +39,3 @@ class PaymentView(UserPassesTestMixin, LoginRequiredMixin, View):
         subscription.save()
 
         return render(request, self.details_template_name, {'payment': payment, 'subscription': subscription})
-
-    def test_func(self):
-        user_role = self.request.user.role
-        return user_role == 0 or user_role == 1

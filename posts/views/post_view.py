@@ -19,6 +19,13 @@ class PostView(UserPassesTestMixin, LoginRequiredMixin, View):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
+        return self.add_post(request)
+
+    def test_func(self):
+        user_role = self.request.user.role
+        return user_role == 0 or user_role == 1
+
+    def add_post(self, request):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             new_post = Post(picture=request.FILES['picture'], user=self.request.user)
@@ -26,7 +33,3 @@ class PostView(UserPassesTestMixin, LoginRequiredMixin, View):
             return HttpResponseRedirect(reverse('feed:index'))
         else:
             return render(request, self.template_name, {'form': form})
-
-    def test_func(self):
-        user_role = self.request.user.role
-        return user_role == 0 or user_role == 1

@@ -15,6 +15,9 @@ class LoginView(View):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
+        return self.perform_login(request)
+
+    def perform_login(self, request):
         form = self.form_class(data=request.POST)
         if form.is_valid():
             login(request, form.get_user())

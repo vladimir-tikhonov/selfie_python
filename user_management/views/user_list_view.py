@@ -11,7 +11,7 @@ class UserListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = User
 
     def get_queryset(self):
-        all_users = User.objects.all()
+        all_users = User.objects.filter(role__lt=settings.DIRECTOR_ROLE)
         queryset = []
         for user in all_users:
             user_data = {

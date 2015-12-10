@@ -14,6 +14,9 @@ class RegistrationView(View):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
+        return self.perform_registration(request)
+
+    def perform_registration(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()

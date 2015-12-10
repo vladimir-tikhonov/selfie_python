@@ -15,3 +15,6 @@ class VipUserListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def test_func(self):
         return self.request.user.role < settings.MODERATOR_ROLE
+
+    def view_vip_users_list(self):
+        pass
